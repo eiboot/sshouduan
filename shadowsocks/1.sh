@@ -183,7 +183,7 @@ supervisor_installation(){
 		echo -e "${Error} ${RedBG} supervisor 安装失败 ${Font}"
 		exit 1
 	else
-		echo -e "${OK} ${GreenBG} supervisor 安装成功 ${Font}"
+		echo -e "${OK} ${GreenBG} supervisor 安装成功conf在/etc/superviosr ${Font}"
 		sleep 1
 	fi
 	
@@ -193,22 +193,23 @@ supervisor_conf_modify_debian(){
 	cat>${suerpvisor_conf_dir}/shadowsocks.conf<<EOF
 [program:shadowsocks]
 command = python ${shadowsocks_folder}/server.py
-stdout_logfile = /var/log/ssmu.log
-stderr_logfile = /var/log/ssmu.log
 user = root
 autostart = true
 autorestart = true
 EOF
 
 	echo -e "${OK} ${GreenBG} supervisor 配置导入成功 ${Font}"
+       sleep 1
+       
+ supervisorctl shutdown
+ supervisord -c /etc/supervisor/supervisord.conf
+       echo -e "${OK} ${GreenBG} 重启superviosr 完成 ${Font}"
 	sleep 1
 }
 supervisor_conf_modify_ubuntu(){
 	cat>${suerpvisor_conf_dir}/shadowsocks.conf<<EOF
 [program:shadowsocks]
 command = python ${shadowsocks_folder}/server.py
-stdout_logfile = /var/log/ssmu.log
-stderr_logfile = /var/log/ssmu.log
 user = root
 autostart = true
 autorestart = true
