@@ -183,7 +183,7 @@ supervisor_installation(){
 		echo -e "${Error} ${RedBG} supervisor 安装失败 ${Font}"
 		exit 1
 	else
-		echo -e "${OK} ${GreenBG} supervisor 安装成功conf在/etc/superviosr ${Font}"
+		echo -e "${OK} ${GreenBG} supervisor 安装成功conf在/etc/supervisor ${Font}"
 		sleep 1
 	fi
 	
@@ -202,7 +202,7 @@ EOF
        sleep 1
        
  supervisorctl shutdown
- supervisord -c /etc/supervisor/supervisord.conf
+ supervisord -c /etc/supervisor/conf.d
        echo -e "${OK} ${GreenBG} 重启superviosr 完成 ${Font}"
 	sleep 1
 }
