@@ -327,7 +327,7 @@ mysql_set(){
 	[[ -z ${MYSQL_USER} ]] && MYSQL_USER="root"
 	stty erase '^H' && read -p "MYSQL_PASS:" MYSQL_PASS
 	[[ -z ${MYSQL_PASS} ]] && MYSQL_PASS=""
-	stty erase '^H' && read -p "MYSQL_DB(default:sspanel):" MYSQL_DB
+	stty erase '^H' && read -p "MYSQL_DB(default:oldsspanel):" MYSQL_DB
 	[[ -z ${MYSQL_DB} ]] && MYSQL_DB="oldsspanel"
 }
 modify_ALL(){
